@@ -6,14 +6,15 @@ def typoglycemia(msg):
     if len(msg)<4:
         return msg
     words = list(msg)
+    typomsg = ''
+    list_idx = list(range(1,((len(words))-2)))
 
-    list_idx = list(range(1,(len(msg)-1)))
     random.shuffle(list_idx)
     list_idx.insert(0,0)
-    list_idx.append(len(msg))
+    list_idx.append(len(words)-1)
     print(list_idx)
-    for i in list_idx:
-        typomsg = words[i::]
+    for i in range(len(list_idx)):
+        typomsg += words[list_idx[i]]
 
     return ''.join(typomsg)
 
