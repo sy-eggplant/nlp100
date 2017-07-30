@@ -12,7 +12,6 @@ def typoglycemia(msg):
     random.shuffle(list_idx)
     list_idx.insert(0,0)
     list_idx.append(len(words)-1)
-    print(list_idx)
     for i in range(len(list_idx)):
         typomsg += words[list_idx[i]]
 
