@@ -7,5 +7,5 @@ def cipher(msg):
         else:
             encry_msg+=words[i]
     return encry_msg
-
+print(cipher("123a4sdf56#"))
 print(cipher("I szev zm zkkov."))
