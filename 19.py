@@ -1,3 +1,5 @@
+from collections import Counter
+
 f = open('hightemp.txt')
 line = f.readline()
 words = []
@@ -10,3 +12,8 @@ while line:
 
 f.close
 print(pref)
+
+counter = Counter(pref)
+
+for word, cnt in counter.most_common():
+    print (word,cnt)
