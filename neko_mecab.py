@@ -1,16 +1,23 @@
-from natto import MeCab
 
-mc = MeCab()
-f_input = open('neko.txt')
-f_output = open('neko.txt.mecab', 'w')
 
-line = f_input.readline()
-data = ""
-for line in f_input:
-    data += mc.parse(line)
-    line = f_input.readline()
+def neko_mecab():
+    f = open('neko.txt.mecab', 'r')
+    mapping = []
 
-f_output.writelines(data)
+    for line in f:
+        if line.find("EOS") == -1:
+            hyou ,other = line.split("\t")
+            other = other.split(",")
+            dic = {
+                'surface': hyou,
+                'base': other[6],
+                'pos': other[0],
+                'pos1': other[1]
+            }
+            mapping.append(dic)
+    f.close()
+    return mapping
 
-f_input.close()
-f_output.close()
+
+
+# print(neko_mecab())
