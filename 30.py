@@ -1,5 +1,4 @@
 f = open('neko.txt.mecab', 'r')
-g = open('neko.mecab_dic.txt', 'w')
 
 mapping = []
 
@@ -17,4 +16,3 @@ for line in f:
 
 print(mapping)
 f.close()
-g.close()
