@@ -31,6 +31,4 @@ def neko_mecab():
     f.close()
     return mapping
 
-
-#neko_mecab()
 print(neko_mecab())
