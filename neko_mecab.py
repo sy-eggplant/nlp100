@@ -30,5 +30,3 @@ def neko_mecab():
             mapping.append(dic)
     f.close()
     return mapping
-
-print(neko_mecab())
