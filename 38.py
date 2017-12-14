@@ -16,17 +16,31 @@ for value in mapping:
         count = dct_words[value['surface']]
         dct_words[value['surface']] = count+1
 
-count = 0
-x = []
-words = []
-y = []
+count = 0 # 前回の値
+index = 0 # xのため
+num = 0 # 単語の種類数
+x = [] # 棒グラフのため
+words = [] # 単語の種類数
+y = [] # 頻出数
+
 for k, v in sorted(dct_words.items(), key=lambda x: -x[1]):
-    words.append(str(k))
-    y.append(str(v))
-    count = count + 1
-    x.append(count)
-    if count == 10:
-        break
+    # k=頻出数、v=単語
+    if count == str(v):
+    # 同じ出現頻度であれば単語の種類を追加
+        num = num + 1
+    else:
+        index = index + 1
+        x.append(index)
+        y.append(num)
+        words.append(count)
+        num = 0
+        count = str(v)
+
+# 最後はいらないのでいれる
+index = index + 1
+x.append(index)
+y.append(num)
+words.append(count)
 
 plt.bar( x, y )
 plt.xticks(x,words)
