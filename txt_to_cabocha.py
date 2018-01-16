@@ -2,15 +2,13 @@ import CaboCha
 
 f_input = open('neko.txt')
 f_output = open('neko.txt.cabocha', 'w')
-print ("ok");
 
 c = CaboCha.Parser()
-print ("ok");
 line = f_input.readline()
 data = ""
 for line in f_input:
     tree = c.parse(line)
-    data += tree.toString(CaboCha.FORMAT_TREE)
+    data += tree.toString(CaboCha.FORMAT_LATTICE)
     line = f_input.readline()
     tree = ""
 
