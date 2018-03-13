@@ -37,7 +37,7 @@ with open('neko.txt.cabocha', encoding='utf-8') as input_file:
 
 target = sentences[7]
 for chunk_obj in target:
-    if chunk_obj.dst is not None:
-        print(chunk_obj.surface() + ' => ' + target[chunk_obj.dst].surface())
-    else:
-        print(chunk_obj.surface())
+   if chunk_obj.dst is not None:
+        #print(chunk_obj.surface() + ' => ' + target[chunk_obj.dst].surface())
+        print(chunk_obj.srcs)
+        #print(chunk_obj.surface())
