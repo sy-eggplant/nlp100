@@ -8,7 +8,7 @@ class Morph:
 
     def __str__(self):
         return 'surface: {}, base: {}, pos: {}, pos1: {}'.format(
-            self.surface, self.base, self.pos, self.pos1
+         self.surface, self.base, self.pos, self.pos1
         )
 
     def end_of_sentence(self):
