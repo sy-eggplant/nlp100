@@ -31,32 +31,31 @@ with open('neko.txt.cabocha', encoding='utf-8') as input_file:
             dst = int(line_elements[2].replace('D',''))
             #src（かかり元文節インデックス番号）
             src = int(line_elements[1])
-            #chunk作成
-            c = chunk.Chunk(morphs=[], srcs=[],dst=dst)
+
             if dst == -1:
+                #chunk作成
+                c = chunk.Chunk(morphs=[], srcs=[],dst=None)
                 srcs = None
             else:
+                #chunk作成
+                c = chunk.Chunk(morphs=[], srcs=[],dst=dst)
                 if dst in srcs:
                     srcs[dst].append(src)
                 else:
                     srcs[dst] = [src]
                 if src in srcs:
                     c.srcs.append(srcs[src])
-            
-
-
         else:
             #単語ごと
             l = line_elements[0].split(',') + line_elements[1].split(',')
             if l[0] == '記号':
                 pass
+            elif l[1] == '記号':
+                pass
             else:
                 m = morph.Morph(surface=l[0], base=l[7], pos=l[1], pos1=l[2])
                 m_obj.append(m)
                 c.morphs.append(m)
-
-for morph_obj in m_objs[2]:
-    print(str(morph_obj))
 
 target = sentences[7]
 for chunk_obj in target:
